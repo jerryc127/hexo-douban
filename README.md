@@ -1,4 +1,4 @@
-# hexo-douban
+# hexo-butterfly-douban
 
 一个在 [Hexo](https://hexo.io) 页面中嵌入豆瓣个人主页的小插件.
 
@@ -12,10 +12,14 @@
 
 [![NPM](https://nodei.co/npm/hexo-douban.png)](https://nodei.co/npm/hexo-douban/)
 
+## Butterfly 修改
+
+在原仓库基础上，修改了一些内容，适配 [Butterfly 主題](https://github.com/jerryc127/hexo-theme-butterfly)。可以配置 `meta`, `top_img`, `comments` 和 `aside`
+
 ## 安装
 
 ``` bash
-$ npm install hexo-douban --save
+$ npm install hexo-butterfly-douban --save
 ```
 
 ## 配置
@@ -29,12 +33,24 @@ douban:
   book:
     title: 'This is my book title'
     quote: 'This is my book quote'
+    meta: true
+    comments: true
+    top_img: https://cccccc.png
+    aside: true
   movie:
     title: 'This is my movie title'
     quote: 'This is my movie quote'
+    meta: true
+    comments: true
+    top_img: https://cccccc.png
+    aside: true
   game:
     title: 'This is my game title'
     quote: 'This is my game quote'
+    meta: true
+    comments: true
+    top_img: https://cccccc.png
+    aside: true
   timeout: 10000 
 ```
 
@@ -43,6 +59,10 @@ douban:
 - **title**: 该页面的标题.
 - **quote**: 写在页面开头的一段话,支持html语法.
 - **timeout**: 爬取数据的超时时间，默认是 10000ms ,如果在使用时发现报了超时的错(ETIMEOUT)可以把这个数据设置的大一点。
+- **meta**: 插入 `<meta name="referrer" content="no-referrer">` 到页面，可解决部分浏览器无法显示豆瓣图片的问题（会导致一些插件出错，例如 不蒜子计数器。）
+- **comments**： 是否显示评论
+- **top_img**： 顶部图
+- **aside**： 是否显示侧边栏
 
 如果只想显示某一个页面(比如movie)，那就把其他的配置项注释掉即可。
 
@@ -76,10 +96,10 @@ Options:
 ## 升级
 我会不定期更新一些功能或者修改一些Bug，所以如果想使用最新的特性，可以用下面的方法来更新:
 
-1. 修改package.json内hexo-douban的版本号至最新
-2. 重新安装最新版本`npm install hexo-douban --save`
+1. 修改 package.json 内 hexo-butterfly-douban 的版本号至最新
+2. 重新安装最新版本`npm install hexo-butterfly-douban --save`
 
-或者使用`npm install hexo-douban --update --save`直接更新。
+或者使用`npm install hexo-butterfly-douban --update --save`直接更新。
 
 ## 显示
 如果上面的配置和操作都没问题，就可以在生成站点之后打开 `//yourblog/books` 和 `//yourblog/movies`, `//yourblog/games`, 来查看结果.
@@ -174,6 +194,9 @@ menu:
 
 ## 截图
 我们在下面这些常见的主题里测试了插件的使用效果:
+
+### hexo-theme-butterfly
+![butterfly](screenshot/butterfly.png)
 
 ### hexo-theme-landscape
 ![landscape](screenshot/landscape.png)
